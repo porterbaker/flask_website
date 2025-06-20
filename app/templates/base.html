@@ -9,19 +9,12 @@
     </head>
     <body>
         <div>Flask Website: 
-            <a href="/index">Home</a>
-            <a href="/login">Login</a>
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('blog') }}">Blog</a>
+            <a href="{{ url_for('projects') }}">Projects</a>
+            <a href="{{ url_for('resume') }}">Resume</a>
+            <a href="{{ url_for('login') }}">Login</a>
         </div>
-        <hr>
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        <ul>
-            {% for message in messages %}
-            <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
-        {% endwith %}
         {% block content %}{% endblock %}
     </body>
 </html>
